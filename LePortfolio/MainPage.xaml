@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LePortfolio.MainPage">
+    <Grid>
+        <Image Aspect="AspectFill" Source="sky1.jpg" HorizontalOptions="Center" VerticalOptions="Center" Opacity="1" x:Name="backgroundImage"/>
+        <!-- bar fix ISNT needed on android build -->
+        <Frame CornerRadius="0" x:Name="BarFix" Background="#001d4f" /> <!-- this is so dumb but i need it so the bg image doesn't "overlay" the titlebar -->
+        <Frame CornerRadius="0">
+            <Frame.Background>
+                <!-- StartPoint defaults to (0,0) -->
+                <LinearGradientBrush EndPoint="1,0">
+                    <GradientStop Color="Black"
+                          Offset="0" />
+                    <GradientStop Color="Transparent"
+                          Offset="1.0" />
+                </LinearGradientBrush>
+            </Frame.Background>
+        </Frame>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center"
+            HorizontalOptions="Start">
+            <HorizontalStackLayout
+                Spacing="25"
+                Padding="30,0"
+                VerticalOptions="Center">
+                <Image
+                Source="logo.png"
+                SemanticProperties.Description="Logo sillhouette"
+                HeightRequest="50"
+                VerticalOptions="Center"/>
+
+
+                <Label
+                Text="Gage Gilbey" TextColor="#ffffff"
+                SemanticProperties.HeadingLevel="Level1"
+                SemanticProperties.Description="Gage Gilbey"
+                FontSize="32"
+                VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            <!-- &#10; is needed to force a line break because "lmao" -->
+            <!-- <hr> hack -->
+            <Label Text="⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀" TextColor="#ffffff" FontSize="18" HorizontalOptions="Center" TextDecorations="Strikethrough"/>
+            <Label
+                Padding="30,0" TextColor="#ffffff"
+                Text='Software Engineer&#10;Web Developer and Designer&#10;Music Producer&#10;Video Editor&#10;Photographer&#10;...and much, much more.&#10;&#10;A "jack of all trades".'
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Software Engineer, Web Developer and Designer, Music Producer, Video Editor, Photographer, and so much more."
+                FontSize="18"
+                HorizontalOptions="Start" />
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>

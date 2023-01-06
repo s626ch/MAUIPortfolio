@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LePortfolio.AboutPage">
+    <Grid>
+        <Image Aspect="AspectFill" Source="sky2.jpg" HorizontalOptions="Center" VerticalOptions="Center" Opacity="1" x:Name="backgroundImage"/>
+        <!-- bar fix ISNT needed on android build -->
+        <Frame CornerRadius="0" x:Name="BarFix" Background="#945cb4" /> <!-- this is so dumb but i need it so the bg image doesn't "overlay" the titlebar -->
+        <Frame CornerRadius="0">
+            <Frame.Background>
+                <!-- StartPoint defaults to (0,0) -->
+                <LinearGradientBrush EndPoint="1,0">
+                    <GradientStop Color="Black"
+                          Offset="0" />
+                    <GradientStop Color="Transparent"
+                          Offset="1.0" />
+                </LinearGradientBrush>
+            </Frame.Background>
+        </Frame>
+        <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center"
+            HorizontalOptions="Center">
+            <!-- spacing for scrolling view -->
+                <Label Text="&#10;&#10;&#10;" FontSize="18" HorizontalOptions="Center" TextColor="#ffffff"/>
+            <HorizontalStackLayout
+                Spacing="25"
+                Padding="30,0"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+                <Image
+                Source="logo.png"
+                SemanticProperties.Description="Logo sillhouette"
+                HeightRequest="50"
+                VerticalOptions="Center"/>
+
+
+                <Label
+                Text="About Me" TextColor="#ffffff"
+                SemanticProperties.HeadingLevel="Level1"
+                SemanticProperties.Description="About me"
+                FontSize="32"
+                VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            <!-- <hr> hack -->
+            <Label Text="⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀" TextColor="#ffffff" FontSize="18" HorizontalOptions="Center" TextDecorations="Strikethrough"/>
+            <!-- &#10; is needed to force a line break because "lmao" -->
+            <Label
+                Padding="30,0" TextColor="#ffffff"
+                Text="As stated before, I'm a Software Engineer,&#10;among many other things."
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="As stated before, I'm a Software Engineer, among many other things."
+                FontSize="18"
+                HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            <!-- multiple labels for cleaner output -->
+            <Label TextColor="#ffffff"
+                Text="I can be found in various places on the internet,&#10;usually using the same name."
+                SemanticProperties.Description="I can be found in various places on the internet, usually using the same name."
+                FontSize="18"
+                HorizontalOptions="Center" HorizontalTextAlignment="Center" />
+            <Label SemanticProperties.Description="My 'Places of Interest' will be directly linked in the very swag buttons below."
+                FontSize="18" TextColor="#ffffff"
+                HorizontalOptions="Center" HorizontalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="My 'Places of Interest' will be directly linked&#10;in the " />
+                        <Span Text="very swag " FontAttributes="Italic" />
+                        <Span Text="buttons below." />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label
+                Text="My Discord tag is: smolyoshino#0626" TextColor="#ffffff"
+                SemanticProperties.Description="My Discord tag is: smolyoshino # 0 6 2 6"
+                FontSize="18"
+                HorizontalOptions="Center" />
+            <!-- uses braille blank to hack an easy variation of <hr> -->
+            <Label
+                Text="⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀" TextColor="#ffffff"
+                FontSize="18"
+                HorizontalOptions="Center" TextDecorations="Strikethrough"/>
+            <!-- begin socials, breaking into 3 because oh My God -->
+            <Grid ColumnDefinitions="*,Auto,*" RowDefinitions="Auto,Auto,Auto,Auto" HorizontalOptions="Center">
+                <Button x:Name="PersonalSite" Text="Personal Website" Clicked="PersonalSite_Clicked" Grid.Column="0" Grid.Row="0" Margin="2,2" Padding="6,0" HeightRequest="32"/>
+                <Button x:Name="Discord" Text="Discord Server" Clicked="Discord_Clicked" Grid.Column="1" Grid.Row="0" Margin="2,2" Padding="6,0" HeightRequest="32"/>
+                <Button x:Name="SoundCloud" Text="SoundCloud" Clicked="SoundCloud_Clicked" Grid.Column="2" Grid.Row="0" Margin="2,2" Padding="6,0" HeightRequest="32"/>
+
+                <Button x:Name="Last_fm" Text="Last.fm" Clicked="Last_fm_Clicked" Grid.Column="0" Grid.Row="1" Margin="2,2" Padding="6,0" HeightRequest="32"/>
+                <Button x:Name="YouTube" Text="YouTube" Clicked="YouTube_Clicked" Grid.Column="1" Grid.Row="1" Margin="2,2" Padding="6,0" HeightRequest="32"/>
+                <Button x:Name="GitHub" Text="GitHub" Clicked="GitHub_Clicked" Grid.Column="2" Grid.Row="1" Margin="2,2" Padding="6,0" HeightRequest="32"/>
+
+                <Button x:Name="Steam" Text="Steam" Clicked="Steam_Clicked" Grid.Column="0" Grid.Row="2" Margin="2,2" Padding="6,0" HeightRequest="32"/>
+                <Button x:Name="Twitter" Text="Twitter" Clicked="Twitter_Clicked" Grid.Column="1" Grid.Row="2" Margin="2,2" Padding="6,0" HeightRequest="32"/>
+                <Button x:Name="Twitter2" Text="Stitch Suiting Twitter" Clicked="Twitter2_Clicked" Grid.Column="2" Grid.Row="2" Margin="2,2" Padding="6,0" HeightRequest="32"/>
+
+                <Button x:Name="Cohost" Text="cohost" Clicked="Cohost_Clicked" Grid.Column="0" Grid.Row="3" Margin="2,2" Padding="6,0" HeightRequest="32"/>
+                <Button x:Name="Instagram" Text="Instagram" Clicked="Instagram_Clicked" Grid.Column="1" Grid.Row="3" Margin="2,2" Padding="6,0" HeightRequest="32"/>
+                <Button x:Name="Tumblr" Text="Tumblr" Clicked="Tumblr_Clicked" Grid.Column="2" Grid.Row="3" Margin="2,2" Padding="6,0" HeightRequest="32"/>
+            </Grid>
+
+            <!-- spacing for scrolling view -->
+                <Label Text="&#10;&#10;&#10;" FontSize="18" HorizontalOptions="Center" TextColor="#ffffff"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
